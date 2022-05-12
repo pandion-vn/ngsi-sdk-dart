@@ -4,7 +4,6 @@
  * Base on doc: https://fiware-tutorials.readthedocs.io/en/latest/crud-operations.html
  */
 
-import 'dart:convert';
 import 'package:dio/dio.dart';
 
 import 'common.dart';
@@ -78,9 +77,9 @@ class OrionContext {
         return {};
       }
 
-      final _convertData = jsonDecode(_rawData.toString()) as Map<String, dynamic>;
+      final _parsed = Map<String, dynamic>.from(_rawData);
 
-      return _convertData;
+      return _parsed;
     } catch (err) {
       throw err as dynamic;
     }
@@ -106,9 +105,9 @@ class OrionContext {
         return [];
       }
 
-      final _convertData = _rawData.map((e) => jsonDecode(e.toString())).toList() as List<Map<String, dynamic>>;
+      final _parsed = _rawData.map((raw) => Map<String, dynamic>.from(raw)).toList();
 
-      return _convertData;
+      return _parsed;
     } catch (err) {
       throw err as dynamic;
     }
