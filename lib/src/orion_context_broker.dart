@@ -10,9 +10,9 @@ import 'package:dio/dio.dart';
 import 'common.dart';
 import 'dio_config.dart';
 
-/// A [OrionSDK]
-class OrionSDK {
-  OrionSDK({required String baseUrl}) : _http = DioRequest(baseUrl);
+/// [OrionContext]
+class OrionContext {
+  OrionContext({required String baseUrl}) : _http = DioRequest(baseUrl);
 
   final DioRequest _http;
 
@@ -22,7 +22,7 @@ class OrionSDK {
     try {
       final _response = await _http.request(
         _url,
-        method: MethodRequestType.POST,
+        method: DioMethodType.POST,
         data: payload,
       ) as Response;
 
@@ -46,7 +46,7 @@ class OrionSDK {
     try {
       final _response = await _http.request(
         _url,
-        method: MethodRequestType.PATCH,
+        method: DioMethodType.PATCH,
         data: payload,
       ) as Response;
 
@@ -69,7 +69,7 @@ class OrionSDK {
     try {
       final _response = await _http.request(
         _url,
-        method: MethodRequestType.GET,
+        method: DioMethodType.GET,
       ) as Response;
 
       final _rawData = _response.data;
@@ -97,7 +97,7 @@ class OrionSDK {
     try {
       final _response = await _http.request(
         _url,
-        method: MethodRequestType.GET,
+        method: DioMethodType.GET,
       ) as Response;
 
       final _rawData = _response.data as List<dynamic>;
@@ -121,7 +121,7 @@ class OrionSDK {
     try {
       final _response = await _http.request(
         _url,
-        method: MethodRequestType.DELETE,
+        method: DioMethodType.DELETE,
       ) as Response;
 
       if (_response.statusCode != 204) {

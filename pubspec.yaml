@@ -1,7 +1,7 @@
-name: ngsi_v2_sdk_dart
-description: A new Flutter package project.
+name: ngsi_v2_sdk
+description: A package of fiware APIs
 version: 0.0.1
-homepage:
+homepage: https://github.com/pandion-vn/ngsi-sdk-dart
 
 environment:
   sdk: ">=2.16.2 <3.0.0"
