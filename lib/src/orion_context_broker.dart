@@ -78,7 +78,7 @@ class OrionContext {
         return {};
       }
 
-      final _convertData = jsonDecode(_rawData) as Map<String, dynamic>;
+      final _convertData = jsonDecode(_rawData.toString()) as Map<String, dynamic>;
 
       return _convertData;
     } catch (err) {
@@ -106,7 +106,7 @@ class OrionContext {
         return [];
       }
 
-      final _convertData = _rawData.map((e) => jsonDecode(e)).toList() as List<Map<String, dynamic>>;
+      final _convertData = _rawData.map((e) => jsonDecode(e.toString())).toList() as List<Map<String, dynamic>>;
 
       return _convertData;
     } catch (err) {
